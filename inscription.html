@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="style_formulaire.css">
+</head>
+<body>
+    
+        <div id="name-field">
+            <h4>INSCRIPTION</h4>
+            <hr>
+            <label>Nom</label>
+            <input type="text" id="in1" >
+            <label>Prenom</label>
+            <input type="text" id="in2" >
+            
+            <label>Nom-utilisateur</label>
+            <input type="text" id="in3" >
+            
+            <label>Adresse mail</label>
+            <input type="text" id="in4" >
+            
+            <label>Mot de passe</label>
+            <input type="text" id="in5" >
+            
+            <span id="s1" style="color: red;"></span>
+            <br>
+            <span id="s1" style="color: red;"></span><br>
+        <button onclick="redirectToLogin()" class="ins">S'inscrire</button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+
+            var NameValue = document.getElementById('in1').value;
+            var nameValue = document.getElementById('in2').value;
+            var userNameValue = document.getElementById('in3').value;
+            var mailValue = document.getElementById('in4').value;
+            var passValue = document.getElementById('in5').value;
+
+            if(passValue.length < 8) {
+                document.getElementById('s1').innerHTML='Password must be at least 8 characters long';
+                return; 
+            }
+
+            // Redirection vers la page de connexion avec les données d'inscription en paramètres d'URL
+            window.location.href = "connexion.html?username=" + userNameValue + "&mail=" + mailValue + "&password=" + passValue;
+        }
+    </script>
+</body>
+</html>

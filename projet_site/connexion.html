@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style_formulaire.css">
+</head>
+<body>
+    <div id="name-field">
+        <h4>CONNECTION</h4>
+        <hr>
+        <label>Nom-utilisateur</label>
+        <input type="text" id="in6" >
+     
+        <label>Adresse mail</label>
+        <input type="text" id="in7" >
+        
+        <label>Mot de passe</label>
+        <input type="text" id="in8" >
+        
+        <span id="s2" style="color: red;"></span><br>
+        <button onclick="login()" class="ins">Se connecter</button>
+    </div>
+
+    <script>
+        function login() {
+            // Récupération des paramètres d'URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var savedUserName = urlParams.get('username');
+            var savedMail = urlParams.get('mail');
+            var savedPassword = urlParams.get('password');
+
+            // Vérification des données pour la connexion
+            var userNameValue = document.getElementById('in6').value;
+            var mailValue = document.getElementById('in7').value;
+            var passValue = document.getElementById('in8').value;
+
+            if (userNameValue === savedUserName && mailValue === savedMail && passValue === savedPassword) {
+                window.location.href = "home.html";
+            } else {
+                document.getElementById('s2').innerHTML = 'Les informations ne correspondent pas';
+            }
+        }
+    </script>
+</body>
+</html>
